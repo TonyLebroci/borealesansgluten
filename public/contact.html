@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Boréale sans gluten</title>
+  <meta name="description" content="Réservez une soirée avec Chef Phil, chef à domicile pour une cuisine boréale gastronomique et sans gluten." />
+  <link rel="canonical" href="https://xn--boralesansgluten-dqb.ca/contact" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+  <header class="site-header">
+    <a href="index.html" class="logo"><img src="images/logo-icone.webp" width="34" height="34" alt="" class="logo-mark" loading="lazy" decoding="async" /><span class="logo-text">Boréale<span class="ligne-2">Sans gluten</span></span></a>
+    <nav class="main-nav" aria-label="Navigation principale"><ul>
+      <li><a href="index.html">Accueil</a></li><li><a href="menu.html">Créations</a></li><li><a href="services.html">Comment ça marche</a></li><li><a href="a-propos.html">Le chef</a></li><li><a href="contact.html" class="active">Contact</a></li>
+    </ul></nav>
+    <div class="header-actions">
+      <a href="contact.html" class="btn btn-primary">Réserver une soirée</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero hero--court">
+      <div class="hero-media"><img src="images/plat-potage-pesto.webp" width="1200" height="1200" alt="" loading="eager" decoding="async" /></div>
+      <div class="hero-scrim"></div>
+      <div class="hero-content">
+        <p class="hero-tag">Contact</p>
+        <h1>Réserver<br /><span class="accent">une soirée.</span></h1>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container contact-layout">
+        <div>
+          <h2>Écrivez à Chef Phil</h2>
+          <!--
+            À CONFIGURER avant mise en ligne : remplacer EMAIL-A-CONFIGURER par la
+            vraie adresse de destination dans l'action FormSubmit ci-dessous, puis
+            cliquer le courriel de confirmation que FormSubmit envoie au premier essai.
+          -->
+          <form class="contact-form" action="https://formsubmit.co/EMAIL-A-CONFIGURER@borealesansgluten.ca" method="POST">
+            <input type="hidden" name="_next" value="https://xn--boralesansgluten-dqb.ca/contact.html?envoye=1" />
+            <input type="hidden" name="_subject" value="Nouvelle demande de réservation — Boréale sans gluten" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+            <div class="form-row">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="Nom" required />
+            </div>
+            <div class="form-row">
+              <label for="courriel">Courriel</label>
+              <input type="email" id="courriel" name="Courriel" required />
+            </div>
+            <div class="form-row">
+              <label for="telephone">Téléphone (optionnel)</label>
+              <input type="tel" id="telephone" name="Téléphone" />
+            </div>
+            <div class="form-row">
+              <label for="date">Date souhaitée (optionnel)</label>
+              <input type="text" id="date" name="Date souhaitée" placeholder="ex. 14 juin 2027" />
+            </div>
+            <div class="form-row">
+              <label for="convives">Nombre de convives</label>
+              <input type="text" id="convives" name="Nombre de convives" />
+            </div>
+            <div class="form-row">
+              <label for="message">Votre événement, allergies et préférences</label>
+              <textarea id="message" name="Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer <span class="btn-arrow">→</span></button>
+            <p class="form-note">
+              Les renseignements fournis servent uniquement à répondre à votre demande. Aucune donnée
+              de santé n'est recueillie par ce formulaire : les allergies alimentaires sont discutées
+              directement avec le chef lors de la planification du menu. Voir notre
+              <a href="confidentialite.html">politique de confidentialité</a>.
+            </p>
+          </form>
+        </div>
+
+        <aside class="contact-infos">
+          <h3>Coordonnées</h3>
+          <dl>
+            <dt>Courriel</dt>
+            <dd>[courriel à confirmer]</dd>
+            <dt>Téléphone</dt>
+            <dd>[téléphone à confirmer]</dd>
+            <dt>Zone desservie</dt>
+            <dd>[ville / rayon de déplacement à confirmer]</dd>
+            <dt>Réseaux sociaux</dt>
+            <dd><a href="https://www.instagram.com/borealesansgluten/" target="_blank" rel="noopener">@borealesansgluten</a> sur Instagram</dd>
+          </dl>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a href="index.html" class="logo"><img src="images/logo-icone.webp" width="28" height="28" alt="" class="logo-mark" loading="lazy" decoding="async" /><span class="logo-text">Boréale<span class="ligne-2">Sans gluten</span></span></a>
+      <nav class="footer-nav" aria-label="Navigation de pied de page"><ul>
+        <li><a href="index.html">Accueil</a></li><li><a href="menu.html">Créations</a></li><li><a href="services.html">Comment ça marche</a></li><li><a href="a-propos.html">Le chef</a></li><li><a href="contact.html">Contact</a></li>
+      </ul></nav>
+      <div class="footer-legal"><a href="confidentialite.html">Politique de confidentialité</a><span class="footer-sep" aria-hidden="true">&middot;</span><a href="https://www.linkedin.com/in/antoine-corbeil-5977322a6/" target="_blank" rel="noopener">Conçu par Antoine Corbeil</a></div>
+      <p class="copyright">© 2026 Boréale sans gluten. Tous droits réservés.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  // Configuration de déploiement pour Cloudflare Workers.
+  // Le site est entièrement statique : aucune étape de compilation.
+  // Tout ce qui se trouve dans public/ est publié tel quel.
+  "name": "borealesansgluten",
+  "compatibility_date": "2026-09-03",
+  "assets": {
+    "directory": "./public/",
+
+    // "/menu" sert menu.html, "/menu/" sert menu/index.html.
+    "html_handling": "auto-trailing-slash",
+
+    // Une URL inexistante affiche public/404.html au lieu d'une page blanche.
+    "not_found_handling": "404-page"
+  }
+}
