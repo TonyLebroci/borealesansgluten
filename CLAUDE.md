@@ -14,7 +14,24 @@ sur son compte Cloudflare (confirmé par Tony le 3 septembre 2026). Le domaine e
 Cloudflare doivent rester au nom du client — voir la section « Propriété » du skill `site-vitrine`
 avant de toucher au DNS ou au compte Cloudflare.
 
-## État du projet (3 septembre 2026)
+## État du projet (4 septembre 2026)
+
+**Le site est en ligne et vérifié** sur :
+- https://xn--boralesansgluten-dqb.ca/ (boréalesansgluten.ca, apex)
+- https://www.xn--boralesansgluten-dqb.ca/ (www)
+- https://borealesansgluten.antoine-corbeil.workers.dev/ (URL de secours workers.dev, activée)
+
+Déploiement automatique par Git actif : `git push` sur `main` → build Cloudflare → `npx wrangler
+deploy`. Domaines personnalisés branchés sur le Worker `borealesansgluten` (apex + www) le 4
+septembre 2026 ; propagation immédiate (la zone était déjà sur les serveurs de noms Cloudflare — pas
+d'attente de 24h nécessaire). Toutes les pages, le 404 et les polices/images ont été revérifiés
+directement sur le domaine réel après branchement.
+
+**Nettoyage DNS effectué au branchement du domaine** : trois enregistrements GoDaddy hérités
+(2 `A` sur l'apex pointant vers une page de parking GoDaddy, 1 `CNAME` `www`) bloquaient l'ajout du
+domaine personnalisé et ont été supprimés pour laisser Cloudflare créer ses propres enregistrements
+`Worker`. Le CNAME `_domainconnect` et le TXT `_dmarc` (tous deux liés à GoDaddy) ont été laissés
+intacts — ils ne bloquaient rien et pourraient encore servir.
 
 Structure et contenu en place à partir du brief fourni par Tony (textes réels du chef tirés de ses
 publications Instagram @borealesansgluten, photos de plats et du chef fournies dans `Photos/`).
@@ -22,6 +39,16 @@ Chercher `[texte entre crochets]`, « À compléter » et « À confirmer avec l
 fichiers `public/*.html` : ce sont les marqueurs de contenu manquant, volontairement non inventé
 (courriel, téléphone, zone desservie, tarification, parcours du chef, délai de réservation). Un
 document `.docx` récapitulant ces éléments a été livré à Tony pour le chef.
+
+### Reste à faire
+
+- Recevoir les réponses de Philippe au questionnaire (`informations-manquantes-borealesansgluten.docx`)
+  et remplacer les marqueurs dans les pages concernées.
+- Configurer la vraie adresse de destination du formulaire de contact (`contact.html`, attribut
+  `action` FormSubmit) et confirmer le courriel FormSubmit au premier envoi réel.
+- Email Routing / courriel professionnel, Google Search Console, fiche Google Business (aucun
+  démarré à ce jour).
+- Livrer le manuel du propriétaire à Tony/Philippe une fois le contenu finalisé.
 
 ## Repository layout
 
