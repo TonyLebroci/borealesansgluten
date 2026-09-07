@@ -110,6 +110,16 @@ p { margin: 0 0 1em; }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 .hero--court { min-height: 44vh; }
 .hero--court .hero-content { padding-top: 96px; padding-bottom: 56px; }
+.hero-media--right { position: absolute; inset: 0 0 0 auto; left: auto; width: min(48%, 620px); z-index: 0; }
+.hero-media--right img { width: 100%; height: 100%; object-fit: cover; }
+.hero-media--right::after {
+  content: ""; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--forest) 0%, rgba(11,23,18,0) 20%);
+}
+@media (max-width: 780px) {
+  .hero-media--right { position: absolute; inset: 0; width: 100%; }
+  .hero-media--right::after { background: linear-gradient(0deg, rgba(6,10,8,0.92) 0%, rgba(6,10,8,0.15) 45%, rgba(6,10,8,0.05) 70%); }
+}
 
 /* ---- Citation du chef ------------------------------------------------ */
 .chef-quote { padding: 80px 24px; background: var(--forest-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
