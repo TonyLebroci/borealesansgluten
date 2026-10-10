@@ -58,6 +58,9 @@ document `.docx` récapitulant ces éléments a été livré à Tony pour le che
 - `outils/convertir-images.py` — redimensionne + convertit en WebP (voir section Images).
 - `wrangler.jsonc` — config de déploiement Cloudflare Workers (racine du dépôt, non publié).
 - `Photos/` — dépôt brut fourni par Tony, dans `.gitignore`, jamais publié.
+- `Appels/` — une note résumée par appel avec le client (`AAAA-MM-JJ Appel avec Phil.md`), exclue
+  localement par `.git/info/exclude` : le dépôt est public, ces notes ne doivent jamais y entrer.
+  Ne pas garder les transcripts bruts.
 
 ## Pages
 
