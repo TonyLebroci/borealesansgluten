@@ -85,6 +85,10 @@ python3 -m http.server 8765 --directory public
 
 Puis ouvrir `http://localhost:8765/index.html`.
 
+**Piège (10 oct. 2026)** : le port 8765 peut déjà être pris en IPv4 par le serveur d'un autre
+projet (La Synthase). `http.server` démarre quand même en IPv6 : `curl localhost` voit Boréale,
+mais le navigateur voit l'autre site. Vérifier le `<title>` de la page, ou prendre un autre port.
+
 ## Déploiement
 
 Cloudflare Workers (assets statiques), `wrangler.jsonc` avec `html_handling:
