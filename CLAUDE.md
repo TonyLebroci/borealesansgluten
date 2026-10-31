@@ -119,9 +119,11 @@ séance photo culinaire serait bénéfique.
 
 ## Formulaire de contact
 
-`contact.html` poste vers FormSubmit.co — **l'adresse de destination n'est pas configurée**
-(`EMAIL-A-CONFIGURER@borealesansgluten.ca` dans l'attribut `action`). La remplacer par la vraie
-adresse, puis cliquer le courriel de confirmation que FormSubmit envoie au premier envoi. Le champ
+`contact.html` poste vers FormSubmit.co. **Destination provisoire depuis le 2026-10-31 :**
+`borealesansgluten@gmail.com` (le Gmail du chef). Avant, l'adresse était factice : aucune demande
+n'arrivait. À remplacer par `phil@borealesansgluten.ca` quand sa boîte Zoho fonctionnera. Toute
+nouvelle adresse doit être activée : FormSubmit envoie un courriel de confirmation au premier envoi,
+et rien n'est remis avant le clic. Le champ
 `_honey` est un piège à pourriel (anti-spam), doit rester caché. La confirmation d'envoi est une
 modale centrée (`afficherConfirmation` dans `js/main.js`), déclenchée par `?envoye=1`.
 
@@ -139,8 +141,8 @@ même commit**.
 
 `boréalesansgluten.ca` existe en punycode sous `xn--boralesansgluten-dqb.ca` — c'est la forme utilisée
 dans tous les `<link rel="canonical">`, `sitemap.xml`, `robots.txt` et le champ `_next` du formulaire.
-La version ASCII `borealesansgluten.ca` (sans accent) n'existe pas comme domaine réel ; elle n'est
-utilisée que comme partie d'adresse courriel provisoire à confirmer.
+La version ASCII `borealesansgluten.ca` (sans accent) a été achetée par Tony le 2026-10-22 ; elle
+n'est pas encore branchée (ni site ni courriel).
 
 ## Vérification avant toute déclaration de « terminé »
 
