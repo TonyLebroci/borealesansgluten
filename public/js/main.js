@@ -3,6 +3,8 @@
 document.addEventListener("DOMContentLoaded", () => {
   initNavMobile();
   initConfirmation();
+  initCarte();
+  initMenuDansContact();
 });
 
 // ---- Menu mobile -----------------------------------------------------------
@@ -54,4 +56,102 @@ function afficherConfirmation() {
   document.addEventListener("keydown", function onEsc(e) {
     if (e.key === "Escape") { fermer(); document.removeEventListener("keydown", onEsc); }
   });
+}
+
+// ---- La carte du chef (menu.html) -----------------------------------------
+// Un plat par service (boutons radio). Le résumé « Votre menu » se remplit et le
+// bouton envoie le choix au formulaire de contact (?menu=…).
+function initCarte() {
+  const carte = document.querySelector(".menu-carte");
+  if (!carte) return;
+  const services = [...carte.querySelectorAll(".service")];
+  const cta = carte.querySelector(".resume-cta");
+  const effacer = carte.querySelector(".resume-effacer");
+  const compte = carte.querySelector(".resume-compte");
+  const barre = carte.querySelector(".resume-barre");
+  const barreCompte = carte.querySelector(".resume-barre-compte");
+  const resume = carte.querySelector(".menu-resume");
+
+  const mettreAJour = () => {
+    const lignes = [];
+    services.forEach((s) => {
+      const choix = s.querySelector(".plat-choix:checked");
+      const li = carte.querySelector(`.resume-liste li[data-service="${s.dataset.service}"]`);
+      li.classList.toggle("choisi", !!choix);
+      li.querySelector(".resume-plat").textContent = choix ? choix.value : "À choisir";
+      if (choix) lignes.push(`${s.dataset.libelle} : ${choix.value}`);
+    });
+    const n = lignes.length;
+    compte.textContent = n;
+    barreCompte.textContent = `${n}/${services.length}`;
+    effacer.hidden = n === 0;
+    cta.href = n ? `contact.html?menu=${encodeURIComponent(lignes.join("\n"))}` : "contact.html";
+    cta.firstChild.textContent = n ? "Proposer ce menu " : "Réserver une soirée ";
+    afficherBarre();
+  };
+
+  // Mobile : petite barre « Votre menu » tant que le résumé n'est pas à l'écran.
+  let resumeVisible = false;
+  let carteVisible = false;
+  const afficherBarre = () => {
+    const n = carte.querySelectorAll(".plat-choix:checked").length;
+    barre.hidden = !(n > 0 && carteVisible && !resumeVisible);
+  };
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver((e) => { resumeVisible = e[0].isIntersecting; afficherBarre(); }).observe(resume);
+    new IntersectionObserver((e) => { carteVisible = e[0].isIntersecting; afficherBarre(); }).observe(carte.querySelector(".menu-services"));
+  }
+
+  carte.addEventListener("change", (e) => {
+    if (!e.target.classList.contains("plat-choix")) return;
+    mettreAJour();
+  });
+  effacer.addEventListener("click", () => {
+    carte.querySelectorAll(".plat-choix:checked").forEach((r) => { r.checked = false; });
+    mettreAJour();
+  });
+
+  // Pastilles des services : celle du service à l'écran est mise en évidence.
+  const liens = [...carte.querySelectorAll(".services-nav a")];
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entrees) => {
+      entrees.forEach((en) => {
+        if (!en.isIntersecting) return;
+        liens.forEach((l) => {
+          const actif = l.hash === `#${en.target.id}`;
+          l.classList.toggle("actif", actif);
+          // Sur cellulaire, la rangée de pastilles défile pour garder la bonne à l'écran.
+          if (actif) l.closest("ul").scrollTo({ left: l.parentElement.offsetLeft - 8, behavior: "smooth" });
+        });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    services.forEach((s) => obs.observe(s));
+  }
+
+  // Photo d'un plat, dans une fenêtre (élément <dialog> natif).
+  const dialog = carte.querySelector(".photo-dialog");
+  const img = dialog.querySelector("img");
+  const legende = dialog.querySelector(".photo-legende");
+  carte.querySelectorAll(".plat-photo").forEach((b) => {
+    b.addEventListener("click", () => {
+      img.src = b.dataset.src;
+      img.alt = b.dataset.alt;
+      img.width = b.dataset.w;
+      img.height = b.dataset.h;
+      legende.textContent = b.closest(".plat").querySelector(".plat-nom").textContent;
+      if (typeof dialog.showModal === "function") dialog.showModal();
+      else window.open(b.dataset.src, "_blank");
+    });
+  });
+  dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
+
+  mettreAJour();
+}
+
+// ---- Contact : menu choisi sur la page Créations --------------------------
+function initMenuDansContact() {
+  const menu = new URLSearchParams(window.location.search).get("menu");
+  const message = document.querySelector(".contact-form textarea");
+  if (!menu || !message || message.value) return;
+  message.value = `Menu souhaité :\n${menu.split("\n").map((l) => `– ${l}`).join("\n")}\n\n`;
 }
