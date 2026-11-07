@@ -4,6 +4,7 @@ document.documentElement.classList.add("js");
 
 document.addEventListener("DOMContentLoaded", () => {
   initMots();
+  initReserverEntete();
   initNavMobile();
   initConfirmation();
   initCarte();
@@ -196,7 +197,7 @@ function initFaq() {
 }
 
 // ---- Accueil : Sauvage, Brut, Indompté arrivent un à un au défilement -------
-// La scène reste collée à l'écran pendant ≈ 2 écrans de défilement ; chaque mot
+// La scène reste collée à l'écran pendant ≈ 1 écran de défilement ; chaque mot
 // apparaît à son tiers. En remontant, ils repartent : l'effet se rejoue.
 function initMots() {
   const section = document.querySelector(".mots");
@@ -222,5 +223,15 @@ function initMots() {
   window.addEventListener("scroll", demander, { passive: true });
   window.addEventListener("resize", demander);
   maj();
+}
+
+// ---- Accueil : un seul bouton Réserver à l'arrivée ---------------------------
+// Sur cellulaire, le bouton de l'en-tête se retire tant que celui du hero est visible.
+function initReserverEntete() {
+  const header = document.querySelector(".site-header");
+  const actions = document.querySelector(".hero--plein .hero-actions");
+  if (!header || !actions || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(([e]) => header.classList.toggle("reserver-cache", e.isIntersecting))
+    .observe(actions);
 }
 
