@@ -119,9 +119,10 @@ séance photo culinaire serait bénéfique.
 
 ## Formulaire de contact
 
-`contact.html` poste vers FormSubmit.co. **Destination provisoire depuis le 2026-10-31 :**
-`borealesansgluten@gmail.com` (le Gmail du chef). Avant, l'adresse était factice : aucune demande
-n'arrivait. À remplacer par `phil@borealesansgluten.ca` quand sa boîte Zoho fonctionnera. Toute
+`contact.html` poste vers FormSubmit.co. **Destination depuis le 2026-11-07 :**
+`phil@borealesansgluten.ca` (boîte Zoho Mail du chef, centre de données canadien `zohocloud.ca` ;
+MX, SPF et DKIM `zmail` posés par Zoho dans GoDaddy, vérifiés le 2026-11-07). Du 2026-10-31 au
+2026-11-07 : le Gmail du chef (`borealesansgluten@gmail.com`). Toute
 nouvelle adresse doit être activée : FormSubmit envoie un courriel de confirmation au premier envoi,
 et rien n'est remis avant le clic. Le champ
 `_honey` est un piège à pourriel (anti-spam), doit rester caché. La confirmation d'envoi est une
@@ -141,8 +142,9 @@ même commit**.
 
 `boréalesansgluten.ca` existe en punycode sous `xn--boralesansgluten-dqb.ca` — c'est la forme utilisée
 dans tous les `<link rel="canonical">`, `sitemap.xml`, `robots.txt` et le champ `_next` du formulaire.
-La version ASCII `borealesansgluten.ca` (sans accent) a été achetée par Tony le 2026-10-22 ; elle
-n'est pas encore branchée (ni site ni courriel).
+La version ASCII `borealesansgluten.ca` (sans accent) a été achetée par Tony le 2026-10-22 (compte
+GoDaddy de Tony jusqu'au transfert). Courriel branché le 2026-11-07 (Zoho) ; **pas encore de
+redirection vers le site** (aucun enregistrement A : ne jamais toucher aux MX, TXT et `zmail._domainkey`).
 
 ## Vérification avant toute déclaration de « terminé »
 
