@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initConfirmation();
   initCarte();
   initMenuDansContact();
+  initFaq();
 });
 
 // ---- Menu mobile -----------------------------------------------------------
@@ -148,10 +149,46 @@ function initCarte() {
   mettreAJour();
 }
 
-// ---- Contact : menu choisi sur la page Créations --------------------------
+// ---- Contact : menu choisi sur la page Menu --------------------------
 function initMenuDansContact() {
   const menu = new URLSearchParams(window.location.search).get("menu");
   const message = document.querySelector(".contact-form textarea");
   if (!menu || !message || message.value) return;
   message.value = `Menu souhaité :\n${menu.split("\n").map((l) => `– ${l}`).join("\n")}\n\n`;
+}
+
+// ---- FAQ : sommaire qui suit la lecture + accordéon (page Comment ça marche) ----
+// Sans JS, tout reste ouvert et lisible ; la classe .js active les animations.
+function initFaq() {
+  const section = document.querySelector(".faq-section");
+  if (!section) return;
+  document.documentElement.classList.add("js");
+
+  const ouvrir = (item, ouvert) => {
+    item.classList.toggle("ouvert", ouvert);
+    item.querySelector(".faq-q button").setAttribute("aria-expanded", ouvert ? "true" : "false");
+  };
+
+  section.querySelectorAll(".faq-item").forEach((item) => {
+    item.querySelector(".faq-q button").addEventListener("click", () => {
+      const ouvert = !item.classList.contains("ouvert");
+      // Une seule réponse ouverte à la fois dans un thème : la lecture reste calme.
+      item.parentElement.querySelectorAll(".faq-item.ouvert").forEach((autre) => ouvrir(autre, false));
+      ouvrir(item, ouvert);
+    });
+  });
+
+  // Sommaire : le thème en cours de lecture est mis en évidence.
+  const liens = [...section.querySelectorAll(".faq-onglet")];
+  const marquer = (id) => liens.forEach((l) => l.setAttribute("aria-current", l.hash === "#" + id ? "true" : "false"));
+  marquer(section.querySelector(".faq-groupe").id);
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entrees) => {
+      entrees.forEach((e) => { if (e.isIntersecting) marquer(e.target.id); });
+    }, { rootMargin: "-35% 0px -60% 0px" });
+    section.querySelectorAll(".faq-groupe").forEach((g) => obs.observe(g));
+  }
+
+  // La première réponse est ouverte d'entrée : le visiteur voit tout de suite le principe.
+  ouvrir(section.querySelector(".faq-item"), true);
 }

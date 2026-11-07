@@ -124,11 +124,67 @@ p { margin: 0 0 1em; }
 .chef-signature .signature-titre { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--amber); margin: 0 0 18px; font-weight: 400; }
 .chef-signature .signature-mots { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.9rem; letter-spacing: 0.04em; }
 .chef-signature .signature-mots strong { color: var(--cream); font-weight: 600; }
-.faq-list { max-width: 760px; margin: 40px auto 0; display: grid; gap: 14px; }
-.faq-list details { border: 1px solid var(--border); border-radius: var(--radius); background: var(--forest-2); padding: 18px 22px; }
-.faq-list summary { cursor: pointer; font-weight: 600; color: var(--cream); }
-.faq-list summary::marker { color: var(--amber); }
-.faq-list details p { color: var(--muted); font-size: 0.92rem; margin: 12px 0 0; }
+/* ---- FAQ (page Comment ça marche) ---------------------------------------------------
+   Deux colonnes : sommaire des thèmes à gauche (reste à l'écran, suit la lecture), questions
+   à droite (accordéon à filets). Sans JS : toutes les réponses restent visibles (classe .js posée
+   par js/main.js, initFaq). */
+.faq-layout {
+  max-width: var(--container); margin: 0 auto; display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 72px; align-items: start;
+}
+.faq-intro { position: sticky; top: 110px; }
+.faq-intro .hero-tag { margin-bottom: 10px; }
+.faq-intro .lede { font-size: 0.98rem; }
+.faq-onglets { display: flex; flex-direction: column; margin: 30px 0 0; border-left: 1px solid var(--border); }
+.faq-onglet {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  background: none; border: 0; border-left: 2px solid transparent; margin-left: -1px;
+  padding: 11px 0 11px 20px; color: var(--muted-2); font: inherit; font-size: 0.95rem;
+  text-align: left; cursor: pointer; transition: color 0.2s ease, border-color 0.2s ease;
+}
+.faq-onglet:hover { color: var(--cream); }
+.faq-onglet[aria-current="true"] { color: var(--cream); border-left-color: var(--amber); }
+.faq-onglet:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.faq-compte { font-size: 0.75rem; color: var(--muted-2); font-variant-numeric: tabular-nums; }
+.faq-onglet[aria-current="true"] .faq-compte { color: var(--amber); }
+.faq-contact { margin-top: 36px; padding-top: 26px; border-top: 1px solid var(--border); }
+.faq-contact .faq-contact-titre { font-family: var(--font-display); font-size: 1.2rem; color: var(--cream); margin: 0 0 8px; }
+.faq-contact p { color: var(--muted); font-size: 0.92rem; margin: 0 0 14px; line-height: 1.8; }
+.faq-contact a:hover { color: var(--amber-light); }
+.faq-contact-lien { color: var(--amber); font-weight: 600; font-size: 0.92rem; }
+
+.faq-groupe { scroll-margin-top: 110px; }
+.faq-groupe + .faq-groupe { margin-top: 56px; }
+.faq-groupe-titre { font-size: 0.78rem; font-family: var(--font-sans); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin: 0 0 4px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-of-type { border-top: 1px solid var(--border); }
+.faq-q { margin: 0; font-size: inherit; }
+.faq-q button {
+  width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  background: none; border: 0; padding: 24px 0; color: var(--cream); cursor: pointer; text-align: left;
+  font-family: var(--font-display); font-weight: 400; font-size: 1.2rem; line-height: 1.35;
+  transition: color 0.2s ease;
+}
+.faq-q button:hover { color: var(--amber-light); }
+.faq-q button:focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
+.faq-icone {
+  position: relative; flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+  border: 1px solid rgba(201, 138, 75, 0.45); transition: transform 0.35s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.faq-icone::before, .faq-icone::after {
+  content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 1.5px; background: var(--amber);
+  transform: translate(-50%, -50%); transition: background 0.25s ease;
+}
+.faq-icone::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq-item.ouvert .faq-icone { transform: rotate(45deg); background: var(--amber); border-color: var(--amber); }
+.faq-item.ouvert .faq-icone::before, .faq-item.ouvert .faq-icone::after { background: #1a1208; }
+.faq-r { display: grid; grid-template-rows: 1fr; }
+.faq-r > div { overflow: hidden; }
+.faq-r p { color: var(--muted); font-size: 0.98rem; line-height: 1.75; margin: 0; padding: 0 56px 26px 0; max-width: 62ch; }
+.js .faq-r { grid-template-rows: 0fr; transition: grid-template-rows 0.4s ease; }
+.js .faq-r p { opacity: 0; transform: translateY(-4px); transition: opacity 0.3s ease, transform 0.3s ease; }
+.js .faq-item.ouvert .faq-r { grid-template-rows: 1fr; }
+.js .faq-item.ouvert .faq-r p { opacity: 1; transform: none; transition-delay: 0.08s; }
 .chef-quote cite { display: block; margin-top: 24px; font-family: var(--font-sans); font-style: normal; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--amber); }
 
 /* ---- Bandeau statistiques ------------------------------------------------ */
@@ -193,7 +249,7 @@ p { margin: 0 0 1em; }
 .gallery-item img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
 .gallery-item .gallery-cap { padding: 14px 16px; }
 .gallery-item .gallery-cap p { margin: 0; font-size: 0.85rem; color: var(--muted); }
-/* ---- La carte du chef (menu 4 services, page Créations) --------------------------- */
+/* ---- La carte du chef (menu 4 services, page Menu) --------------------------- */
 /* Un plat par service : des boutons radio natifs (clavier et sans JS), stylés en cartes.
    Le résumé « Votre menu » est rempli par js/main.js (initCarte) et pré-remplit le
    formulaire de contact (?menu=…). */
@@ -300,6 +356,7 @@ p { margin: 0 0 1em; }
   .plat-carte, .plat-coche::after { transition: none; }
   .plat-carte:hover { transform: none; }
   .resume-liste li.choisi .resume-plat { animation: none; }
+  .js .faq-r, .js .faq-r p, .faq-icone { transition: none; }
 }
 
 /* ---- À propos / portrait ------------------------------------------------------------- */
@@ -423,6 +480,12 @@ p { margin: 0 0 1em; }
   .resume-barre-compte { background: rgba(26, 18, 8, 0.16); border-radius: 999px; padding: 2px 9px; }
   .about-layout { grid-template-columns: 1fr; }
   .contact-layout { grid-template-columns: 1fr; }
+  .faq-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .faq-intro { position: static; }
+  .faq-onglets { flex-direction: row; overflow-x: auto; border-left: 0; gap: 8px; margin-top: 22px; scrollbar-width: none; }
+  .faq-onglet { flex-shrink: 0; border: 1px solid var(--border); border-radius: 999px; margin: 0; padding: 8px 16px; gap: 8px; }
+  .faq-onglet[aria-current="true"] { border-color: var(--amber); background: rgba(201, 138, 75, 0.12); }
+  .faq-contact { display: none; }
 }
 @media (max-width: 640px) {
   .card-grid { grid-template-columns: 1fr; }

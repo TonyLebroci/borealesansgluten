@@ -35,7 +35,7 @@
   <header class="site-header">
     <a href="index.html" class="logo"><img src="images/logo-icone.webp" width="34" height="34" alt="" class="logo-mark" decoding="async" /><span class="logo-text">Boréale<span class="ligne-2">Sans gluten</span></span></a>
     <nav class="main-nav" aria-label="Navigation principale"><ul>
-      <li><a href="index.html">Accueil</a></li><li><a href="menu.html">Créations</a></li><li><a href="services.html" class="active">Comment ça marche</a></li><li><a href="a-propos.html">Le chef</a></li><li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html">Accueil</a></li><li><a href="menu.html">Menu</a></li><li><a href="services.html" class="active">Comment ça marche</a></li><li><a href="a-propos.html">Le chef</a></li><li><a href="contact.html">Contact</a></li>
     </ul></nav>
     <div class="header-actions">
       <a href="contact.html" class="btn btn-primary">Réserver une soirée</a>
@@ -113,62 +113,78 @@
       </div>
     </section>
 
-    <section class="content-section" style="padding-top:0;">
-      <div class="section-head">
-        <h2>Questions fréquentes</h2>
-      </div>
-      <div class="container faq-list">
-        <details>
-          <summary>Combien de temps d'avance faut-il réserver ?</summary>
-          <p>Idéalement quatre à cinq semaines. L'été, le calendrier se remplit un mois à l'avance.</p>
-        </details>
-        <details>
-          <summary>Où le chef se déplace-t-il ?</summary>
-          <p>À partir de la région de Montmagny, notamment à Québec, à Sainte-Marie et à
-          Saint-Jean-Port-Joli. Des frais de déplacement s'ajoutent selon la distance.</p>
-        </details>
-        <details>
-          <summary>Comment le menu est-il choisi ?</summary>
-          <p>Le chef vous envoie d'abord une première proposition, pour vous en donner le style, puis
-          l'ajuste selon la saison et vos préférences. Pour plus de 16 personnes, jusqu'à une quarantaine, il
-          propose plutôt un menu de bouchées, façon dégustation.</p>
-        </details>
-        <details>
-          <summary>De quoi le chef a-t-il besoin dans ma cuisine ?</summary>
-          <p>De votre cuisinière pour cuire et réchauffer, et d'un peu d'espace de travail. Il apporte ses
-          chaudrons, ses ustensiles, ses planches à découper et sa vaisselle.</p>
-        </details>
-        <details>
-          <summary>Qu'est-ce que je dois préparer ?</summary>
-          <p>La table et l'espace où vous mangerez, ainsi que l'eau et les boissons. Le chef s'occupe de toute la
-          partie nourriture.</p>
-        </details>
-        <details>
-          <summary>Combien de temps dure une soirée ?</summary>
-          <p>Le chef arrive environ une heure avant le repas pour s'installer. Le repas lui-même dure environ deux
-          heures : comptez environ trois heures de présence chez vous.</p>
-        </details>
-        <details>
-          <summary>Combien ça coûte ?</summary>
-          <p>Le repas en quatre services est offert à partir de 85&nbsp;$ par personne, frais de déplacement en
-          sus. Le prix exact se confirme avec le chef : il varie selon le nombre de convives, le nombre de
-          services et la formule (repas ou bouchées).</p>
-        </details>
-        <details>
-          <summary>Quand et comment paie-t-on ?</summary>
-          <p>Après la soirée, sans acompte. Le chef confirme le nombre de convives deux ou trois jours avant :
-          c'est ce nombre qui est facturé, puisque les produits sont achetés en conséquence.</p>
-        </details>
-        <details>
-          <summary>Le chef propose-t-il des accords mets et vins ?</summary>
-          <p>Il n'est pas sommelier, mais il peut vous suggérer des vins du Québec pour accompagner le menu.</p>
-        </details>
-        <details>
-          <summary>Et les allergies ?</summary>
-          <p>Toute la cuisine est sans gluten. Pour les autres allergies ou intolérances, parlez-en au chef au
-          moment de préparer le menu : il l'ajuste. Les noix sont rares dans ses menus et les fruits de mer,
-          occasionnels.</p>
-        </details>
+    <section class="content-section faq-section" id="faq" style="padding-top:0;">
+      <div class="faq-layout">
+        <div class="faq-intro">
+          <p class="hero-tag">Questions fréquentes</p>
+          <h2>Tout savoir avant votre soirée</h2>
+          <p class="lede">Réservation, menu, déroulement et prix : l'essentiel en quelques réponses. Pour tout le reste, le chef vous répond directement.</p>
+          <nav class="faq-onglets" aria-label="Thèmes des questions">
+            <a class="faq-onglet" href="#groupe-reserver">Réserver<span class="faq-compte">2</span></a>
+            <a class="faq-onglet" href="#groupe-menu">Le menu<span class="faq-compte">3</span></a>
+            <a class="faq-onglet" href="#groupe-soiree">La soirée<span class="faq-compte">3</span></a>
+            <a class="faq-onglet" href="#groupe-prix">Prix et paiement<span class="faq-compte">2</span></a>
+          </nav>
+          <div class="faq-contact">
+            <p class="faq-contact-titre">Une autre question&nbsp;?</p>
+            <p><a href="tel:+14185084654">418 508-4654</a><br /><a href="mailto:phil@borealesansgluten.ca">phil@borealesansgluten.ca</a></p>
+            <a href="contact.html" class="faq-contact-lien">Écrire au chef <span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+        <div class="faq-groupes">
+          <div class="faq-groupe" id="groupe-reserver">
+            <h3 class="faq-groupe-titre">Réserver</h3>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q1" aria-expanded="false" aria-controls="faq-r1"><span>Combien de temps d'avance faut-il réserver ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r1" role="region" aria-labelledby="faq-q1"><div><p>Idéalement quatre à cinq semaines. L'été, le calendrier se remplit un mois à l'avance.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q2" aria-expanded="false" aria-controls="faq-r2"><span>Où le chef se déplace-t-il ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r2" role="region" aria-labelledby="faq-q2"><div><p>À partir de la région de Montmagny, notamment à Québec, à Sainte-Marie et à Saint-Jean-Port-Joli. Des frais de déplacement s'ajoutent selon la distance.</p></div></div>
+            </div>
+          </div>
+          <div class="faq-groupe" id="groupe-menu">
+            <h3 class="faq-groupe-titre">Le menu</h3>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q3" aria-expanded="false" aria-controls="faq-r3"><span>Comment le menu est-il choisi ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r3" role="region" aria-labelledby="faq-q3"><div><p>Le chef vous envoie d'abord une première proposition, pour vous en donner le style, puis l'ajuste selon la saison et vos préférences. Pour plus de 16 personnes, jusqu'à une quarantaine, il propose plutôt un menu de bouchées, façon dégustation.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q4" aria-expanded="false" aria-controls="faq-r4"><span>Le chef propose-t-il des accords mets et vins ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r4" role="region" aria-labelledby="faq-q4"><div><p>Il n'est pas sommelier, mais il peut vous suggérer des vins du Québec pour accompagner le menu.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q5" aria-expanded="false" aria-controls="faq-r5"><span>Et les allergies ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r5" role="region" aria-labelledby="faq-q5"><div><p>Toute la cuisine est sans gluten. Pour les autres allergies ou intolérances, parlez-en au chef au moment de préparer le menu : il l'ajuste. Les noix sont rares dans ses menus et les fruits de mer, occasionnels.</p></div></div>
+            </div>
+          </div>
+          <div class="faq-groupe" id="groupe-soiree">
+            <h3 class="faq-groupe-titre">La soirée</h3>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q6" aria-expanded="false" aria-controls="faq-r6"><span>De quoi le chef a-t-il besoin dans ma cuisine ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r6" role="region" aria-labelledby="faq-q6"><div><p>De votre cuisinière pour cuire et réchauffer, et d'un peu d'espace de travail. Il apporte ses chaudrons, ses ustensiles, ses planches à découper et sa vaisselle.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q7" aria-expanded="false" aria-controls="faq-r7"><span>Qu'est-ce que je dois préparer ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r7" role="region" aria-labelledby="faq-q7"><div><p>La table et l'espace où vous mangerez, ainsi que l'eau et les boissons. Le chef s'occupe de toute la partie nourriture.</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q8" aria-expanded="false" aria-controls="faq-r8"><span>Combien de temps dure une soirée ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r8" role="region" aria-labelledby="faq-q8"><div><p>Le chef arrive environ une heure avant le repas pour s'installer. Le repas lui-même dure environ deux heures : comptez environ trois heures de présence chez vous.</p></div></div>
+            </div>
+          </div>
+          <div class="faq-groupe" id="groupe-prix">
+            <h3 class="faq-groupe-titre">Prix et paiement</h3>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q9" aria-expanded="false" aria-controls="faq-r9"><span>Combien ça coûte ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r9" role="region" aria-labelledby="faq-q9"><div><p>Le repas en quatre services est offert à partir de 85&nbsp;$ par personne, frais de déplacement en sus. Le prix exact se confirme avec le chef : il varie selon le nombre de convives, le nombre de services et la formule (repas ou bouchées).</p></div></div>
+            </div>
+            <div class="faq-item">
+              <h4 class="faq-q"><button type="button" id="faq-q10" aria-expanded="false" aria-controls="faq-r10"><span>Quand et comment paie-t-on ?</span><span class="faq-icone" aria-hidden="true"></span></button></h4>
+              <div class="faq-r" id="faq-r10" role="region" aria-labelledby="faq-q10"><div><p>Après la soirée, sans acompte. Le chef confirme le nombre de convives deux ou trois jours avant : c'est ce nombre qui est facturé, puisque les produits sont achetés en conséquence.</p></div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -185,7 +201,7 @@
     <div class="footer-inner">
       <a href="index.html" class="logo"><img src="images/logo-icone.webp" width="28" height="28" alt="" class="logo-mark" loading="lazy" decoding="async" /><span class="logo-text">Boréale<span class="ligne-2">Sans gluten</span></span></a>
       <nav class="footer-nav" aria-label="Navigation de pied de page"><ul>
-        <li><a href="index.html">Accueil</a></li><li><a href="menu.html">Créations</a></li><li><a href="services.html">Comment ça marche</a></li><li><a href="a-propos.html">Le chef</a></li><li><a href="contact.html">Contact</a></li>
+        <li><a href="index.html">Accueil</a></li><li><a href="menu.html">Menu</a></li><li><a href="services.html">Comment ça marche</a></li><li><a href="a-propos.html">Le chef</a></li><li><a href="contact.html">Contact</a></li>
       </ul></nav>
       <a class="footer-social" href="https://www.instagram.com/borealesansgluten/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg><span>@borealesansgluten</span></a>
       <div class="footer-legal"><a href="confidentialite.html">Politique de confidentialité</a><span class="footer-sep" aria-hidden="true">&middot;</span><a href="https://www.linkedin.com/in/antoine-corbeil-5977322a6/" target="_blank" rel="noopener">Conçu par Antoine Corbeil</a></div>
