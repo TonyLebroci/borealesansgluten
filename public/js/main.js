@@ -1,6 +1,9 @@
 // Boréale sans gluten — script unique, sans build.
 
+document.documentElement.classList.add("js");
+
 document.addEventListener("DOMContentLoaded", () => {
+  initMots();
   initNavMobile();
   initConfirmation();
   initCarte();
@@ -162,7 +165,6 @@ function initMenuDansContact() {
 function initFaq() {
   const section = document.querySelector(".faq-section");
   if (!section) return;
-  document.documentElement.classList.add("js");
 
   const ouvrir = (item, ouvert) => {
     item.classList.toggle("ouvert", ouvert);
@@ -192,3 +194,33 @@ function initFaq() {
   // La première réponse est ouverte d'entrée : le visiteur voit tout de suite le principe.
   ouvrir(section.querySelector(".faq-item"), true);
 }
+
+// ---- Accueil : Sauvage, Brut, Indompté arrivent un à un au défilement -------
+// La scène reste collée à l'écran pendant ≈ 2 écrans de défilement ; chaque mot
+// apparaît à son tiers. En remontant, ils repartent : l'effet se rejoue.
+function initMots() {
+  const section = document.querySelector(".mots");
+  if (!section) return;
+  const mots = [...section.querySelectorAll(".mot")];
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    mots.forEach((m) => m.classList.add("visible"));
+    return;
+  }
+  let enAttente = false;
+  const maj = () => {
+    enAttente = false;
+    const r = section.getBoundingClientRect();
+    const course = section.offsetHeight - window.innerHeight; // distance pendant laquelle la scène reste collée
+    const progres = course > 0 ? Math.min(1, Math.max(0, -r.top / course)) : 1;
+    // Le 1er mot arrive dès que la scène entre à l'écran, les deux autres à 30 % et 60 %.
+    const entre = r.top < window.innerHeight * 0.35;
+    mots[0].classList.toggle("visible", entre);
+    mots[1].classList.toggle("visible", progres > 0.3);
+    mots[2].classList.toggle("visible", progres > 0.6);
+  };
+  const demander = () => { if (!enAttente) { enAttente = true; requestAnimationFrame(maj); } };
+  window.addEventListener("scroll", demander, { passive: true });
+  window.addEventListener("resize", demander);
+  maj();
+}
+

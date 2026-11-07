@@ -85,24 +85,28 @@
       <div class="hero-content">
         <p class="hero-tag">Expérience gastronomique privée</p>
         <h1>Une cuisine née du territoire, <span class="accent">servie chez vous.</span></h1>
-        <p>Chef Phil cuisine ce que la forêt murmure, ce que les champs offrent et ce que les saisons décident — une expérience gastronomique entièrement sans gluten, à votre table.</p>
         <div class="hero-actions">
           <a href="contact.html" class="btn btn-primary">Réserver une soirée <span class="btn-arrow">→</span></a>
-          <a href="menu.html" class="btn btn-outline">Découvrir les créations</a>
+          <a href="menu.html" class="hero-lien">Découvrir le menu <span class="btn-arrow">→</span></a>
         </div>
+      </div>
+    </section>
+
+    <!-- Le slogan du chef : les trois mots arrivent un à un au défilement (js/main.js, initMots).
+         Sans JS ou avec « réduire les animations » : les trois mots sont simplement affichés. -->
+    <section class="mots" aria-labelledby="mots-titre">
+      <div class="mots-scene">
+        <h2 id="mots-titre" class="visuellement-cache">Sauvage, brut et indompté</h2>
+        <ol class="mots-liste">
+          <li class="mot"><span class="mot-grand">Sauvage</span><span class="mot-sens">la cuisine</span></li>
+          <li class="mot"><span class="mot-grand">Brut</span><span class="mot-sens">le produit</span></li>
+          <li class="mot"><span class="mot-grand">Indompté</span><span class="mot-sens">le territoire</span></li>
+        </ol>
       </div>
     </section>
 
     <section class="chef-quote">
       <div class="container">
-        <div class="chef-signature">
-          <p class="signature-titre">Sauvage, brut et indompté</p>
-          <ul class="signature-mots">
-            <li><strong>Sauvage</strong> : la cuisine</li>
-            <li><strong>Brut</strong> : le produit</li>
-            <li><strong>Indompté</strong> : le territoire</li>
-          </ul>
-        </div>
         <blockquote>
           « Être chef privé, pour moi, ce n'est pas seulement cuisiner. C'est raconter le
           territoire dans une assiette. C'est faire goûter la forêt, la terre, le vent du Nord. »

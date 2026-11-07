@@ -120,10 +120,32 @@ p { margin: 0 0 1em; }
   font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.75rem); font-style: italic;
   line-height: 1.5; color: var(--cream);
 }
-.chef-signature { text-align: center; margin: 0 auto 48px; }
-.chef-signature .signature-titre { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--amber); margin: 0 0 18px; font-weight: 400; }
-.chef-signature .signature-mots { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.9rem; letter-spacing: 0.04em; }
-.chef-signature .signature-mots strong { color: var(--cream); font-weight: 600; }
+
+/* ---- Sauvage, brut et indompté (accueil) -------------------------------------------
+   Avec JS : la section est longue (≈ 3 écrans) et sa scène reste collée à l'écran ;
+   chaque mot « pop » quand le défilement atteint son tiers (initMots). Sans JS ou en
+   « réduire les animations » : les trois mots sont affichés, sans effet. */
+.visuellement-cache { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mots { position: relative; background: var(--forest); }
+.mots-scene { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; justify-content: center; padding: 80px 24px; }
+.mots-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(18px, 4vh, 40px); text-align: center; }
+.mot { display: flex; flex-direction: column; align-items: center; }
+.mot-grand {
+  font-family: var(--font-display); font-weight: 400; line-height: 0.95; letter-spacing: -0.01em;
+  font-size: clamp(3.6rem, 15vw, 8.5rem); color: var(--cream);
+}
+.mot:first-child .mot-grand { color: var(--amber); }
+.mot-sens { margin-top: 8px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.js .mots { height: 300vh; height: 300svh; }
+.js .mots-scene { position: sticky; top: 0; height: 100vh; height: 100svh; min-height: 0; }
+.js .mot { opacity: 0; transform: translateY(26px) scale(0.86); filter: blur(6px);
+  transition: opacity 0.55s ease, transform 0.75s cubic-bezier(.2,1.4,.4,1), filter 0.55s ease; }
+.js .mot.visible { opacity: 1; transform: none; filter: none; }
+.js .mot .mot-sens { opacity: 0; transition: opacity 0.5s ease 0.25s; }
+.js .mot.visible .mot-sens { opacity: 1; }
+.hero-lien { display: inline-flex; align-items: center; gap: 8px; padding: 14px 4px; color: var(--cream); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid transparent; }
+.hero-lien:hover { color: var(--amber); }
+.hero-lien:hover .btn-arrow { transform: translateX(3px); }
 /* ---- FAQ (page Comment ça marche) ---------------------------------------------------
    Deux colonnes : sommaire des thèmes à gauche (reste à l'écran, suit la lecture), questions
    à droite (accordéon à filets). Sans JS : toutes les réponses restent visibles (classe .js posée
@@ -357,6 +379,9 @@ p { margin: 0 0 1em; }
   .plat-carte:hover { transform: none; }
   .resume-liste li.choisi .resume-plat { animation: none; }
   .js .faq-r, .js .faq-r p, .faq-icone { transition: none; }
+  .js .mots { height: auto; }
+  .js .mots-scene { position: static; height: auto; min-height: 100vh; min-height: 100svh; }
+  .js .mot, .js .mot .mot-sens { opacity: 1; transform: none; filter: none; transition: none; }
 }
 
 /* ---- À propos / portrait ------------------------------------------------------------- */
