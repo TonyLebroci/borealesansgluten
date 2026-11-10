@@ -153,7 +153,7 @@ validée par la balise `google-site-verification` de `index.html` : **ne jamais 
 `google7d95e7830386aab7.html` ne suffit pas (Cloudflare redirige les `.html` vers l'adresse sans extension).
 Le plan du site liste les adresses sans `.html`, comme les canoniques. Mots-clés et règles : note
 `Référencement.md` (hors git). « Chef à domicile » + région dans chaque `<title>` et description ;
-« Expérience gastronomique privée » reste en haut de l'accueil. Rien sur la santé (cœliaques) sans l'accord de Phil.
+« Expérience gastronomique privée » reste en haut de l'accueil. L'onglet de `a-propos.html` s'appelle « Chef à domicile » (choix de Tony, 2026-11-10) ; pages locales `chef-a-domicile-quebec`, `chef-a-domicile-levis`, `party-de-bureau` hors du menu, reliées depuis le bas de page et la FAQ. Rien sur la santé (cœliaques) sans l'accord de Phil.
 
 ## Vérification avant toute déclaration de « terminé »
 
