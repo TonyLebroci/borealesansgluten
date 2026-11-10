@@ -146,6 +146,15 @@ La version ASCII `borealesansgluten.ca` (sans accent) a été achetée par Tony 
 GoDaddy de Tony jusqu'au transfert). Courriel branché le 2026-11-07 (Zoho) ; **pas encore de
 redirection vers le site** (aucun enregistrement A : ne jamais toucher aux MX, TXT et `zmail._domainkey`).
 
+## Référencement (depuis le 2026-11-10)
+
+Google Search Console : propriété `https://xn--boralesansgluten-dqb.ca/` sur le compte Google de Tony,
+validée par la balise `google-site-verification` de `index.html` : **ne jamais la retirer**. Le fichier
+`google7d95e7830386aab7.html` ne suffit pas (Cloudflare redirige les `.html` vers l'adresse sans extension).
+Le plan du site liste les adresses sans `.html`, comme les canoniques. Mots-clés et règles : note
+`Référencement.md` (hors git). « Chef à domicile » + région dans chaque `<title>` et description ;
+« Expérience gastronomique privée » reste en haut de l'accueil. Rien sur la santé (cœliaques) sans l'accord de Phil.
+
 ## Vérification avant toute déclaration de « terminé »
 
 Après tout changement, vérifier que tous les liens internes de toutes les pages renvoient 200 (y
