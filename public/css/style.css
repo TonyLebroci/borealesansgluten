@@ -448,6 +448,7 @@ p { margin: 0 0 1em; }
 .footer-legal a { font-size: 0.8rem; color: var(--muted); }
 .footer-legal a:hover { color: var(--amber); }
 .footer-legal .footer-sep { color: var(--muted-2); font-size: 0.8rem; }
+.footer-zone { color: var(--muted-2); font-size: 0.78rem; text-align: center; max-width: 46ch; margin: 0 auto; }
 .copyright { color: var(--muted-2); font-size: 0.78rem; }
 
 /* ---- Pages légales / prose ---------------------------------------------------------------- */
