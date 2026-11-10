@@ -143,8 +143,8 @@ même commit**.
 `boréalesansgluten.ca` existe en punycode sous `xn--boralesansgluten-dqb.ca` — c'est la forme utilisée
 dans tous les `<link rel="canonical">`, `sitemap.xml`, `robots.txt` et le champ `_next` du formulaire.
 La version ASCII `borealesansgluten.ca` (sans accent) a été achetée par Tony le 2026-10-22 (compte
-GoDaddy de Tony jusqu'au transfert). Courriel branché le 2026-11-07 (Zoho) ; **pas encore de
-redirection vers le site** (aucun enregistrement A : ne jamais toucher aux MX, TXT et `zmail._domainkey`).
+GoDaddy de Tony jusqu'au transfert). Courriel branché le 2026-11-07 (Zoho). Redirection permanente (301) vers `https://www.xn--boralesansgluten-dqb.ca/`
+par le « Forwarding » de GoDaddy, vérifiée le 2026-11-10 (avec et sans www) ; ne jamais toucher aux MX, TXT et `zmail._domainkey`.
 
 ## Référencement (depuis le 2026-11-10)
 
