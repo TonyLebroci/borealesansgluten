@@ -279,7 +279,7 @@ p { margin: 0 0 1em; }
    Le résumé « Votre menu » est rempli par js/main.js (initCarte) et pré-remplit le
    formulaire de contact (?menu=…). */
 .menu-carte .section-head, .galerie-section .section-head { padding: 0 24px; }
-.menu-carte .section-head .hero-tag { margin-bottom: 10px; }
+.menu-carte .section-head .hero-tag, .content-section .section-head .hero-tag { margin-bottom: 10px; }
 .menu-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 48px; align-items: start; }
 .services-nav { position: sticky; top: 84px; z-index: 5; margin: 0 -4px 8px; padding: 12px 4px; background: var(--forest); border-bottom: 1px solid var(--border); }
 .services-nav ul { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
